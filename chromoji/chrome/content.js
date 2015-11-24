@@ -13,10 +13,10 @@ var storage = chrome.storage.local;
 storage.get('type', function (data) {
 
     style = 'emojione';
-    if (!data.type && data.type.style) {
+    if (data.type && data.type.style) {
         style = data.type.style;
     }
-    emoji.img_set = data.type.style;
+    emoji.img_set = style;
 
 
     $(':not(:has(*))').emoji();
