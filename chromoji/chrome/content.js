@@ -26,30 +26,19 @@ storage.get('type', function (data) {
             $this = $(this);
             content = emoji.replace_unified(this.textContent);
             if (content != this.textContent) {
+                $parent = $this.parent();
+                fontSize = $parent.css('font-size');
                 var replacementNode = document.createElement('span');
                 replacementNode.innerHTML = emoji.replace_unified(this.textContent);
                 this.parentNode.insertBefore(replacementNode, this);
                 this.parentNode.removeChild(this);
+                if (fontSize != '16px') {
+                    $parent.find('.emoji-sizer').css({width: fontSize, height: fontSize});
+                }
             }
+
         });
 });
-
-// A very simple jQuery wrapper for js-emoji
-$.fn.emoji = function () {
-    return this.each(function () {
-        $this = $(this);
-        $this.html(function (i, oldHtml) {
-            return emoji.replace_unified(oldHtml);
-        });
-        $emojiList = $this.find('.emoji-sizer')
-        if ($emojiList.length) {
-            fontSize = $this.css('font-size');
-            if (fontSize != '16px') {
-                $emojiList.css({width: fontSize, height: fontSize});
-            }
-        }
-    });
-};
 
 
 
