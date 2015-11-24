@@ -1,6 +1,6 @@
 .emoji-sizer {
     width           : 16px;
     height          : 16px;
-    background-size : 16px;
+    background-size : cover;
     display         : inline-block;
 }
