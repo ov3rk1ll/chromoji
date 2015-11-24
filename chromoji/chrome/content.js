@@ -17,9 +17,21 @@ storage.get('type', function (data) {
         style = data.type.style;
     }
     emoji.img_set = style;
-
-
-    $(':not(:has(*))').emoji();
+    $('*')
+        .contents()
+        .filter(function () {
+            return this.nodeType === 3;
+        })
+        .each(function () {
+            $this = $(this);
+            content = emoji.replace_unified(this.textContent);
+            if (content != this.textContent) {
+                var replacementNode = document.createElement('span');
+                replacementNode.innerHTML = emoji.replace_unified(this.textContent);
+                this.parentNode.insertBefore(replacementNode, this);
+                this.parentNode.removeChild(this);
+            }
+        });
 });
 
 // A very simple jQuery wrapper for js-emoji
