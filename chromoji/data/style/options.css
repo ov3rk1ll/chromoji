@@ -1,0 +1,33 @@
+.template {
+    display : none;
+}
+
+.storage-list {
+    display : block;
+    clear   : both;
+}
+
+.item {
+    display : inline-block;
+    clear   : both;
+    padding : 10px 0;
+}
+
+.elem {
+    float   : left;
+    padding : 0 10px;
+}
+
+.elem:first-child {
+    padding-left : 0;
+}
+
+a, a:visited {
+    text-decoration : underline;
+    color           : #D96716;
+    cursor          : pointer;
+}
+
+a:hover, a:active {
+    text-decoration : none;
+}

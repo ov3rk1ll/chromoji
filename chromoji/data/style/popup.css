@@ -1,0 +1,23 @@
+
+body {
+    font-family : "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size   : 100%;
+    width       : 300px;
+    line-height : 30px;
+    color       : #2B292E;
+}
+
+label {
+    cursor : pointer;
+}
+
+a, a:hover, a:active, a:focus, a:visited {
+    text-decoration : underline;
+    cursor          : pointer;
+    padding         : 5px;
+    color           : #2B292E;
+}
+
+strong {
+    display : block;
+}
