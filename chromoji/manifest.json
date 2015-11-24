@@ -1,32 +1,36 @@
 {
-    "manifest_version": 2,
-    "name"            : "Chromoji",
-    "description"     : "Show emojis in Chrome",
-    "version"         : "1.0.0",
-    "update_url"      : "http://google.com",
-    "icons"           : {
+    "manifest_version"        : 2,
+    "name"                    : "Chromoji",
+    "description"             : "Show emojis in Chrome",
+    "version"                 : "1.0.0",
+    "update_url"              : "http://google.com",
+    "icons"                   : {
         "16" : "data/images/icon-16.png",
         "48" : "data/images/icon-48.png",
         "128": "data/images/icon-128.png"
     },
-    "options_page"    : "chrome/options.html",
-    "content_scripts" : [
+    "options_page"            : "chrome/options.html",
+    "content_scripts"         : [
         {
-            "matches": ["http://*/*"],
+            "matches": ["http://*/*", "https://*/*"],
             "css"    : ["data/style/content.css"],
-            "js"     : ["chrome/content.js"]
+            "js"     : ["data/script/jquery.js", "data/script/emoji.min.js", "chrome/content.js"]
         }
     ],
-    "browser_action"  : {
+    "browser_action"          : {
         "default_icon" : {                    // optional
             "19": "data/images/icon-19.png",           // optional
             "38": "data/images/icon-38.png"            // optional
         },
         "default_popup": "data/template/popup.html?chrome"
     },
-    "permissions"     : [
+    "permissions"             : [
         "storage",
         "activeTab",
-        "http://*/*"
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": [
+        "data/images/*"
     ]
 }
