@@ -3,4 +3,5 @@
     height          : 16px;
     background-size : cover;
     display         : inline-block;
+    color           : transparent;
 }
