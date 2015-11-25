@@ -1,6 +1,6 @@
 {
     "manifest_version"        : 2,
-    "name"                    : "Chromoji",
+    "name"                    : "Chromoji - Emojis for Google Chrome",
     "description"             : "Display emojis in Chrome",
     "version"                 : "1.0.2",
     "icons"                   : {
