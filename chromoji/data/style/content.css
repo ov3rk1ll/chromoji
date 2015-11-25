@@ -6,4 +6,5 @@
     color           : transparent;
     line-height     : 1em;
     text-align      : center;
+    overflow        : hidden;
 }

@@ -9,7 +9,6 @@ emoji.img_sets = {
     'emojione': {'path': url + 'emoji-data/img-emojione-64/', 'sheet': '/emoji-data/sheet_emojione_64.png', 'mask': 8 }
 };
 
-console.log('go go');
 var storage = chrome.storage.local;
 storage.get('type', function (data) {
 
@@ -30,6 +29,7 @@ storage.get('type', function (data) {
                 $parent = $this.parent();
                 fontSize = $parent.css('font-size');
                 var replacementNode = document.createElement('span');
+                replacementNode.className = 'emoji-container';
                 replacementNode.innerHTML = emoji.replace_unified(this.textContent);
                 this.parentNode.insertBefore(replacementNode, this);
                 this.parentNode.removeChild(this);
