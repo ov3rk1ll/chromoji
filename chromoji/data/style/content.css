@@ -8,3 +8,7 @@
     text-align      : center;
     overflow        : hidden;
 }
+
+.emoji-inner {
+    display:block;
+}
