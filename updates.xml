@@ -2,6 +2,6 @@
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
     <app appid='idhbecfhnagcgfnohojfdnlpnkiofgfo'>
         <updatecheck codebase='http://smeeckaert.github.io/chromoji/chromoji.crx'
-                     version='1.0.5'/>
+                     version='1.0.6'/>
     </app>
 </gupdate>
