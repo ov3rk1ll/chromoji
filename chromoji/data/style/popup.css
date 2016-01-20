@@ -1,23 +1,51 @@
 
 body {
-    font-family : "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-    font-size   : 100%;
-    width       : 300px;
-    line-height : 30px;
-    color       : #2B292E;
+    font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+    font-size: 100%;
+    width: 300px;
+    line-height: 30px;
+    color: #2B292E;
 }
 
 label {
-    cursor : pointer;
+    cursor: pointer;
 }
 
 a, a:hover, a:active, a:focus, a:visited {
-    text-decoration : underline;
-    cursor          : pointer;
-    padding         : 5px;
-    color           : #2B292E;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 5px;
+    color: #2B292E;
+}
+
+input[type="text"] {
+    width: 100%;
 }
 
 strong {
-    display : block;
+    display: block;
+}
+
+.emoji-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.emoji-list li {
+    float: left;
+    padding: 5px 5px;
+    transition: all .2s;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.emoji-list li:hover {
+    background: #ccc;
 }
