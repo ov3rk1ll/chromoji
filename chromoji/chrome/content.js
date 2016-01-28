@@ -74,7 +74,6 @@ emoji.img_sets = {
     var support = {};
 
     var el = document.documentElement;
-    console.log(el);
     var remain = 3;
 
     // callback for the tests
