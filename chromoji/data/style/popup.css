@@ -26,7 +26,7 @@ strong {
     display: block;
 }
 
-.emoji-list {
+.emoji-list-container {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -35,8 +35,46 @@ strong {
     overflow-y: scroll;
 }
 
-.emoji-list li {
+.emoji-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: all .2s;
+}
+
+input[type="checkbox"]:not(:checked) + .emoji-list {
+    max-height: 0px;
+    /*display: none;*/
+}
+
+label {
+    display: inline-block;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
     float: left;
+    margin-top: 6px;
+    text-indent: 1000px;
+    margin-left: -1000px;
+    font-size: 16px;
+    width: 1020px;
+
+}
+
+input[type="checkbox"]:after {
+    content: "⬆️";
+}
+
+input[type="checkbox"]:checked:after {
+    content: "⬇️";
+}
+
+.emoji-list li {
+    display: inline-block;
     padding: 5px 5px;
     transition: all .2s;
     font-size: 24px;

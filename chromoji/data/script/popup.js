@@ -5,35 +5,38 @@ BrowserAddOn.onload(function () {
     listEmoji = emoji.data;
     $list = $(".emoji-list");
     $input = $(".emoji-container-text")
-
-    for (i in listEmoji) {
-        curEmoji = listEmoji[i];
-        $item = $("<li/>");
-        $item.attr('data-name', curEmoji[3]);
-        $item.attr('title', curEmoji[3]);
-        codes = curEmoji[0];
-        content = $("<div/>").html(codes[0]);
-        /*        for (j in codes) {
-         content.html(content.html() + codes[j]);
-         }*/
-        $item.html(content.html());
-        $item.appendTo($list);
-    }
+    /*
+     for (i in listEmoji) {
+     curEmoji = listEmoji[i];
+     $item = $("<li/>");
+     $item.attr('data-name', curEmoji[3]);
+     $item.attr('title', curEmoji[3]);
+     codes = curEmoji[0];
+     content = $("<div/>").html(codes[0]);
+     for (j in codes) {
+     content.html(content.html() + codes[j]);
+     }
+     $item.html(content.html());
+     $item.appendTo($list);
+     }*/
 
     $search = $(".search-field");
 
     $search.on('keyup change', function () {
         $this = $(this);
         val = $this.val();
-        $list.find('li').css('display', 'list-item');
-        if (val) {
-            $list.find('li').each(function () {
-                $elem = $(this);
-                if ($elem.attr('title').indexOf(val) === -1) {
-                    $elem.css('display', 'none');
-                }
-            });
-        }
+        $list.each(function () {
+            $tmpList = $(this);
+            $tmpList.find('li').css('display', 'inline-block');
+            if (val) {
+                $tmpList.find('li').each(function () {
+                    $elem = $(this);
+                    if ($elem.attr('title').indexOf(val) === -1) {
+                        $elem.css('display', 'none');
+                    }
+                });
+            }
+        });
     });
 
     $list.on('click', 'li', function () {
@@ -50,10 +53,22 @@ BrowserAddOn.onload(function () {
     emoji.use_sheet = true;
 
     emoji.img_sets = {
-        'apple': {'path': url + 'emoji-data/img-apple-64/', 'sheet': url + 'emoji-data/sheet_apple_64.png', 'mask': 1 },
-        'google': {'path': url + 'emoji-data/img-google-64/', 'sheet': url + 'emoji-data/sheet_google_64.png', 'mask': 2 },
-        'twitter': {'path': url + 'emoji-data/img-twitter-72/', 'sheet': url + 'emoji-data/sheet_twitter_64.png', 'mask': 4 },
-        'emojione': {'path': url + 'emoji-data/img-emojione-64/', 'sheet': url + 'emoji-data/sheet_emojione_64.png', 'mask': 8 }
+        'apple': {'path': url + 'emoji-data/img-apple-64/', 'sheet': url + 'emoji-data/sheet_apple_64.png', 'mask': 1},
+        'google': {
+            'path': url + 'emoji-data/img-google-64/',
+            'sheet': url + 'emoji-data/sheet_google_64.png',
+            'mask': 2
+        },
+        'twitter': {
+            'path': url + 'emoji-data/img-twitter-72/',
+            'sheet': url + 'emoji-data/sheet_twitter_64.png',
+            'mask': 4
+        },
+        'emojione': {
+            'path': url + 'emoji-data/img-emojione-64/',
+            'sheet': url + 'emoji-data/sheet_emojione_64.png',
+            'mask': 8
+        }
     };
     var storage = chrome.storage.local;
     storage.get('type', function (data) {
