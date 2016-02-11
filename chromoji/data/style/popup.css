@@ -47,7 +47,14 @@ strong {
 
 input[type="checkbox"]:not(:checked) + .emoji-list {
     max-height: 0px;
-    /*display: none;*/
+}
+
+.force-display input[type="checkbox"] {
+    display: none;
+}
+
+.force-display .emoji-list {
+    max-height: 2500px !important;
 }
 
 label {
@@ -63,6 +70,10 @@ input[type="checkbox"] {
     font-size: 16px;
     width: 1020px;
 
+}
+
+.hidden {
+    display: none;
 }
 
 input[type="checkbox"]:after {
