@@ -37,6 +37,12 @@ function insert() {
         if (data.type && data.type.style) {
             style = data.type.style;
         }
+
+        var scale = 1;
+        if (data.type && data.type.scale) {
+            scale = parseFloat(data.type.scale);
+        }
+
         emoji.img_set = style;
         $('*:not(iframe):not(.emoji-inner)')
             .contents()
@@ -55,6 +61,7 @@ function insert() {
                 if (content != this.textContent) {
                     $parent = $this.parent();
                     fontSize = $parent.css('font-size');
+                    fontSize = (parseInt(fontSize) * scale) + 'px';
                     var replacementNode = document.createElement('span');
                     replacementNode.className = 'emoji-container';
                     replacementNode.innerHTML = emoji.replace_unified(self.textContent);
