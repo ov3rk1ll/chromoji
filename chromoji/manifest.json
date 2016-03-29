@@ -20,8 +20,7 @@
         "data/script/jquery.js",
         "data/script/emoji.min.js",
         "chrome/content.js"
-      ],
-      "run_at": "document_start"
+      ]
     }
   ],
   "browser_action": {

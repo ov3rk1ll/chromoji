@@ -28,6 +28,9 @@ function insert() {
     }
     running = true;
     var storage = chrome.storage.local;
+    if (!storage) {
+        return;
+    }
     storage.get('type', function (data) {
 
         style = 'emojione';
@@ -43,6 +46,7 @@ function insert() {
             .each(function () {
                 var $this = $(this);
                 var $parentEditable = $this.parents('[contenteditable="true"]');
+
                 if ($parentEditable.length) {
                     return false;
                 }
