@@ -21,6 +21,23 @@ emoji.img_sets = {
 var running = false;
 var runAgain = false;
 
+var insertId = null;
+function insertDebounced() {
+    time = 0;
+    if (insertId) {
+        time = 3000;
+    }
+    var id = Math.random();
+    insertId = id;
+    setTimeout(function () {
+        if (id != insertId) {
+            return;
+        }
+        insert();
+        insertId = null;
+    }, time);
+}
+
 function insert() {
     if (running) {
         runAgain = true;
@@ -80,15 +97,19 @@ function insert() {
     });
 }
 
-var observer = new MutationObserver(function () {
-    insert();
-});
+insert();
+observe();
+function observe() {
+    var observer = new MutationObserver(function () {
+        insertDebounced();
+    });
 
-observer.observe(
-    document, {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true
-    }
-);
+    observer.observe(
+        document, {
+            attributes: true,
+            childList: true,
+            characterData: true,
+            subtree: true
+        }
+    );
+}
